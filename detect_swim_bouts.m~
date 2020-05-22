@@ -59,20 +59,20 @@ title( [Exp])
 xlabel ('Time')
 legend ('diff(tail)', 'motor ang', 'swimm bout', 'Location', 'southoutside')
 
-
-%% Find peaks and plot on index number
+%
+%% Find peaks and plot on time
 [peak_amp , peak_locs ] = findpeaks(abs(Swb),'MinPeakHeight',1.5,'MinPeakDistance',20);
 
 fig = figure
 hold on
 
 yyaxis left
-plot(Time (Swb(fi:inc:(ff-1)))
+plot(Time (fi:inc:(ff-1)), Swb(fi:inc:(ff-1)))
 ylim ([-15 15])
 ylabel ('Tail velocity')
 yyaxis right
-plot (Motor(fi:inc:ff), 'LineStyle','-')
-plot(peak_locs, Motor(peak_locs),'*','Color','g');
+plot (Time(fi:inc:ff),Motor(fi:inc:ff), 'LineStyle','-')
+plot(Time(peak_locs), Motor(peak_locs),'*','Color','g');
 ylim ([-90 90])
 ylabel ('Motor Angle')
 title( [Exp])

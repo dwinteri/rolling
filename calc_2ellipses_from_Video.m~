@@ -73,7 +73,7 @@ save('AngleDif');%save data obtained from the subrstraction of the angle between
 
 % To calculate the angle you can stop here
 
-%% Plot angle delta and motor angle vs time stamp (just to check)
+%% Plot angle delta and motor angle vs time stamp
 
 Time = Data.TimeStamp; %rename all the variables contained in the 'Data' structure
 TailH = Data.TailAngle - Data.TailAngle(1);% Tail H is the tail angle obtained directly in the program by Hugo's program
@@ -115,7 +115,7 @@ save('workspace')
 
 
 %% To check if the code worked
-%% Make an image sequence to show 2 ellipse
+%% Make an image sequence to show one ellipse
 figure %open a new figure
 for i = 1 :10:100
     im = read (v,i);
@@ -131,21 +131,6 @@ for i = 1 :10:100
 end
 
 
-
-%% Binarize, get and draw 2 ellipses on one single frame
-
-
-figure %open a new figure
-i = 1 
-im = read (v,i);
-%     imgray = rgb2gray(im);
-[Bin]= ExtractTailH(im);% define [Bin] as the function "ExtractTailH" on image (im)
-imshow(Bin) %show bin image on the figure
-hold on
-Binrot = imrotate(Bin,20);
-Es = get_ellipses(Bin,2);
-draw_ellipse(Es.E1,[1 0 1]);
-draw_ellipse(Es.E2,[1 0 1]);
 
 
 
@@ -163,6 +148,7 @@ E = get_ellipse(Bin)
 draw_ellipse(E,[1 0 1])
 
 
+%% 
 
 
 %%  Make an image sequence to show one ellipse

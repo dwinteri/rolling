@@ -6,8 +6,8 @@ clear
 close all
 %% Open Folder and loading Data
 
-path = '/home/ljp/Science/Projects/Rolling/2018-01/2018-01-16/';
-folder = 'Run15'
+path = '/home/ljp/Science/Projects/Rolling/2018-03/2018-03-30/';
+folder = 'Run.01'
 % 
 % path = '/home/ljp/Science/Projects/Rolling/Data_balancoir/2018-01/'
 % folder = 'ramp_90_500_4dpf_01'

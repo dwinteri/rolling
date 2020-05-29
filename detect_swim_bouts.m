@@ -3,8 +3,8 @@
 clear
 close all
 %%
-path = '/home/ljp/Science/Projects/Rolling/2018-01/2018-01-16/'
-folder = 'Run.15'
+path = '/home/ljp/Science/Projects/Rolling/2018-03/2018-03-30/'
+folder = 'Run.01'
 load ([path folder '/AngleDif.mat'])
 load ([path folder '/data.mat'])
 sep = find(path == filesep); %find the separations in the directory made by a /
@@ -28,7 +28,6 @@ plot(Time (fi:inc:ff), Tail_smooth(fi:inc:ff),'LineStyle','-')
 
 ylim ([-25 25])
 ylabel ('Tail angle (deg)')
-
 yyaxis right
 plot (Time(fi:inc:ff),Motor(fi:inc:ff), 'LineStyle','-')
 ylabel ('Absolute body angle (deg)')
@@ -67,7 +66,7 @@ fig = figure
 hold on
 
 yyaxis left
-plot(Time (Swb(fi:inc:(ff-1)))
+plot(Swb(fi:inc:(ff-1)))
 ylim ([-15 15])
 ylabel ('Tail velocity')
 yyaxis right

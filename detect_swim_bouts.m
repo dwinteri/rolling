@@ -3,14 +3,26 @@
 clear
 close all
 %%
-path = '/home/ljp/Science/Projects/Rolling/2018-03/2018-03-30/'
-folder = 'Run.01'
+path = '/home/ljp/Science/Projects/Rolling/2017-12/2017-12-14/'
+folder = 'run.1'
 load ([path folder '/AngleDif.mat'])
 load ([path folder '/data.mat'])
 sep = find(path == filesep); %find the separations in the directory made by a /
 Exp = [path(sep(end-2):end) folder]; % defines the name of the folder or directory to name the
 
 cd (fullfile(path, folder))
+
+
+%% if parameters ff fi inc are not in the workspace, run:
+
+v = VideoReader('video.avi');
+
+
+Tf= v.NumberOfFrames;%total number of frames
+fi = 1;%initital frame
+inc = 1;%increament in the number of frames, if you want to analyze all the sequence it should be = 1
+ff = Tf;% final frame, it corresponds to the total lenght of the file list
+
 %% Calculate the derivative to find peaks
 N = 10 % number of data to average with the moving average method of smothing
 Tail_smooth = smoothdata(angle_dif,'movmean',N); % smoothens the angle_dif vector by averaging 10 points
